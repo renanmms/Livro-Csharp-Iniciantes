@@ -9,10 +9,12 @@ Pedido.MostrarDigitacao(Digitado);
 
 
 class InteracaoUsuario {
+    // Método que lê o que foi digitado
     public string SolicitarDigitacao()
     {
         return Console.ReadLine();
     }
+    // Método que mostra o que foi digitado
     public void MostrarDigitacao(string Digitado)
     {
         Console.WriteLine(Digitado);
