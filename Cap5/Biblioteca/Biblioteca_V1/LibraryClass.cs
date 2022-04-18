@@ -10,6 +10,7 @@ namespace LibraryClass {
 
         }
 
+        // Construtor com parâmetros
         public Biblioteca(string Titulo, string Autor, int Paginas, bool Status){
             _Titulo = Titulo;
             _Autor = Autor;
