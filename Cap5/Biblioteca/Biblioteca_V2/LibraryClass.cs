@@ -38,6 +38,11 @@ namespace LibraryClass
         {
             get{ return _Status;} set {_Status = value;}
         }
+
+        public virtual void Descarte()
+        {
+            _Titulo = "O Livro foi Doado";
+        }
     }
 
     public class Revistas : Biblioteca {
@@ -58,5 +63,31 @@ namespace LibraryClass
             get {return _AnoPublicacao;} 
             set {_AnoPublicacao = value;}
         }
+
+        public override void Descarte()
+        {
+            this.Titulo = "A Revista foi Reciclada";
+        }
     }
+
+    public class Fotos : Revistas
+    {
+        // Propriedades da Classe
+        private string _Tipo;
+
+        public Fotos(string Tipo): base (0,0)
+        {
+            _Tipo = Tipo;
+        }
+        public string Tipo { 
+            get {return _Tipo;}
+            set {_Tipo = value;}   
+        }
+
+        public override void Descarte()
+        {
+            this.Titulo = "A Foto foi Destruida";
+        }
+    }
+
 }

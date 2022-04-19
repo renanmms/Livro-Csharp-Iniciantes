@@ -39,3 +39,30 @@ Console.WriteLine($"Titulo: {MeusLivros.Titulo}");
 Console.WriteLine($"Paginas: {MeusLivros.Paginas}");
 Console.WriteLine($"Status: {MeusLivros.Status}");
 Console.WriteLine();
+
+// Inicializando a classe Fotos
+Fotos MinhasFotos = new Fotos("Colorida");
+MinhasFotos.AnoPublicacao = 2021;
+MinhasFotos.MesPublicacao = 3;
+MinhasFotos.Autor = "Desconhecido";
+MinhasFotos.Titulo = "Vida Eterna";
+MinhasFotos.Paginas = 1;
+MinhasFotos.Status = true;
+
+// Imprimindo os valores da minha classe
+WriteLine($"Foto Tipo: {MinhasFotos.Tipo}");
+WriteLine($"Foto Mes: {MinhasFotos.MesPublicacao}");
+WriteLine($"Foto Ano: {MinhasFotos.AnoPublicacao}");
+WriteLine($"Foto Autor: {MinhasFotos.Autor}");
+WriteLine($"Foto Titulo: {MinhasFotos.Titulo}");
+WriteLine($"Foto Paginas: {MinhasFotos.Paginas}");
+WriteLine($"Foto Status: {MinhasFotos.Status}");
+WriteLine();
+
+MeusLivros.Descarte(); // O Livro foi Doado
+WriteLine($"Titulo: {MeusLivros.Titulo}"); // 
+MinhasRevistas.Descarte(); // A Revista foi Reciclada
+WriteLine($"Titulo: {MinhasRevistas.Titulo}");
+MinhasFotos.Descarte(); // A Foto foi Destruída
+WriteLine($"Titulo: {MinhasFotos.Titulo}");
+WriteLine();
