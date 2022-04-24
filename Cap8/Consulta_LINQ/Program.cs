@@ -1,9 +1,21 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 // Array de inteiros (fonte de dados)
-var numeros = new[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+var numeros = new[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19};
+
+// Declarando um dicionário
+Dictionary<int, int> hash = new Dictionary<int, int>();
+
+// Adicionando elementos no array
+hash.Add(1, 0xa);
+hash.Add(2, 0xb);
+hash.Add(3, 0xc);
+hash.Add(4, 0xd);
+hash.Add(5, 0xe);
+hash.Add(6, 0xf);
 
 // Query (Sintaxe de Método)
 var numerosFiltrados = numeros.Where( n => n > 5 );
@@ -12,11 +24,12 @@ var numerosFiltrados = numeros.Where( n => n > 5 );
 var numerosFiltrados2 = from n in numeros where n > 5 select n;
 
 // Executando a query
-foreach(var numero in numerosFiltrados2){
-    Console.WriteLine(numero);
+foreach(var num in numerosFiltrados2){
+    Console.WriteLine(num);
 }
 
-Console.WriteLine("---- Operador de Restrição (WHERE) ----");
+Console.WriteLine("---- Operador de Restrição ----");
+Console.WriteLine("--- (WHERE) ---");
 // Coleção de pessoas
 var pessoas = new[]
 {
@@ -80,8 +93,8 @@ Console.WriteLine("--- (MIN) ---");
 
 var doisElementos = numeros.Take(2);
 
-foreach(var numero in doisElementos){
-    Console.WriteLine(numero);
+foreach(var num in doisElementos){
+    Console.WriteLine(num);
 }
 
 Console.WriteLine();
@@ -92,3 +105,79 @@ var media = numeros.Average();
 
 // Imprime valor da média
 Console.WriteLine(media);
+
+Console.WriteLine();
+Console.WriteLine("---- Operador de Ordenação ----");
+Console.WriteLine("--- (REVERSE) ---");
+
+var numerosOrdenados = numeros.OrderByDescending(n => n);
+
+foreach(var n in numerosOrdenados)
+{
+    Console.WriteLine(n);
+}
+
+Console.WriteLine("--- (ORDERBY) ---");
+// Declarando uma pilha
+Stack<int> pilha = new Stack<int>();
+
+// Empilhando os inteiros
+pilha.Push(3);
+pilha.Push(2);
+pilha.Push(5);
+
+var pilhaOrdenada = pilha.OrderBy(n => n);
+
+foreach(var p in pilhaOrdenada){
+    Console.WriteLine(p);
+}
+
+Console.WriteLine();
+Console.WriteLine("--- (ORDERBYDESCENDING) ---");
+
+pilhaOrdenada = pilha.OrderByDescending(n => n);
+
+foreach(var p in pilhaOrdenada){
+    Console.WriteLine(p);
+}
+
+Console.WriteLine();
+Console.WriteLine("---- Operador de Paginação ----");
+Console.WriteLine("--- (TAKE) ---");
+
+var items = numeros.Take(4);
+
+foreach(var i in items){
+    Console.WriteLine(i);
+}
+
+Console.WriteLine("--- (TAKEWHILE) ---");
+
+// Aplica um filtro no array numeros
+items = numeros.TakeWhile(n => n < 6);
+
+foreach(var i in items){
+    Console.WriteLine(i);
+}
+
+Console.WriteLine();
+// Executa o operador de paginação First no array
+var numero = numeros.First();
+Console.WriteLine(numero);
+
+Console.WriteLine("Usando o First na pilha: ");
+var pilhaTopo = pilha.First();
+Console.WriteLine($"{pilhaTopo}");
+
+var fila = new Queue<int>();
+fila.Enqueue(3);
+fila.Enqueue(10);
+fila.Enqueue(6);
+fila.Enqueue(7);
+
+
+Console.WriteLine("Usando o First na fila: ");
+var filaTopo = fila.First();
+Console.WriteLine(filaTopo);
+
+Console.WriteLine("--- (FIRSTORDEFAULT) ---");
