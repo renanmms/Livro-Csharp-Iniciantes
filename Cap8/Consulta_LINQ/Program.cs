@@ -177,7 +177,78 @@ fila.Enqueue(7);
 
 
 Console.WriteLine("Usando o First na fila: ");
-var filaTopo = fila.First();
+var filaTopo = fila.First(); // Se a fila estiver vazia é gerada uma exceção
 Console.WriteLine(filaTopo);
 
 Console.WriteLine("--- (FIRSTORDEFAULT) ---");
+filaTopo = fila.FirstOrDefault();
+Console.WriteLine(filaTopo);
+
+Console.WriteLine("--- (LAST) | (LASTORDEFAULT) ---");
+// Executa o operador de paginação LastOrDefault na coleção
+var numeroDefault = numeros.LastOrDefault(p => p == 10);
+// Imprime número
+Console.WriteLine(numeroDefault);
+
+// Executa o operador de paginação Last na coleção
+var ultimo = numeros.Last();
+
+// Imprime número
+Console.WriteLine($"{ultimo}");
+
+Console.WriteLine("--- (SKIP) ---");
+// Executa o operador de paginação Skip na coleção
+var numerosPaginados = numeros.Skip(3);
+
+// Faz iteração em numerosPaginados
+foreach(var n in numerosPaginados){
+    // Imprime número
+    Console.WriteLine(n);
+}
+
+Console.WriteLine("--- (CONCAT) ---");
+
+// Declarando duas listas com inteiros
+var colecao1 = new List<int>{1, 2, 3};
+var colecao2 = new List<int>{5, 6, 7};
+
+// Concatenando a colecao2 com a colecao1
+var colecao3 = colecao1.Concat(colecao2);
+
+// Imprimindo valores da colecao1
+foreach(var i in colecao3){
+    Console.WriteLine(i);
+}
+
+Console.WriteLine("--- (ELEMENTAT) ---");
+
+// Para recuperar um elemento passamos o índice para o método ElementAt
+var elemento = numeros.ElementAt(5); // numeros[5]
+
+// Imprimindo o elemento no indice 5
+Console.WriteLine($"Elemento no indice 5: {elemento}");
+
+Console.WriteLine("--- (SINGLE) | (SINGLEORDEFAULT) ---");
+int x = numeros.Single( p => p == 10); //  Gerar uma exceção se existir mais de um elemento que satisfaça o filtro
+
+Console.WriteLine($"Utilizando o Single: {x}"); 
+
+int y = numeros.SingleOrDefault(p => p == 8);
+Console.WriteLine($"Utilizando o SingleOrDefault: {y}"); // O Single traz garantia de unicidade e evita elementos duplicados
+
+Console.WriteLine("");
+Console.WriteLine("---- Operador de Projeção ----");
+Console.WriteLine("--- (SELECT) ---");
+
+var categorias = numeros.Select(p => 
+    new 
+    {
+        Id = p,
+        Descricao = $"Categoria {p}"
+    }
+);
+
+foreach(var c in categorias)
+{
+    Console.WriteLine($"Descrição: {c.Descricao} Id: {c.Id}");
+}
