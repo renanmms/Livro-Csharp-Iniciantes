@@ -4,9 +4,12 @@ using static System.Console;
 try
 {
     string produto = "peixe";
-    DateTime lancto = new DateTime(2010, 5, 15);
+    DateTime lancto = new DateTime(2010, 2, 18);
     WriteLine($"o {produto} tem {idade(lancto.Year)} anos");
-    WriteLine($"o {produto} tem {idade(2023)} anos");
+    // WriteLine($"o {produto} tem {idade(2023)} anos");
+
+    WriteLine($"o {produto} tem {PescaAutorizada(lancto.Month, lancto.Day)}"); 
+    WriteLine($"o {produto} tem {PescaAutorizada(7, 18)}");
 }
 catch (Exception ex)
 {
@@ -29,4 +32,5 @@ static string PescaAutorizada(int pMes, int pDia){
     if(pMes >= 5 && pMes <= 8){
         throw new Exception($"pesca no inverno {nameof(pMes)}");
     }
+    return "Pesca autorizada";
 }
