@@ -45,4 +45,16 @@ public class DescontoTests
         // Verificar
         Assert.Equal(30, valor);
     }
+    
+    [Fact]
+    public void SeProdutoForLaranjaNaoHaDesconto(){
+        // Preparar
+        var desconto = new Desconto();
+
+        // Executar
+        var valor = desconto.Calcule(Cor.Laranja);
+
+        // Verificar
+        Assert.Equal(0, valor);
+    }
 }

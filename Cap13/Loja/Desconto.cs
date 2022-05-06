@@ -9,6 +9,7 @@ namespace Loja
         {
             Cor.Vermelho => 10,
             Cor.Verde => 20,
+            Cor.Laranja => 0,
             _ => 30
         };
     }
