@@ -2,7 +2,7 @@
 
 
 ## Sobre 
-O livro foi escrito por profissionias MVP, e apresenta os fundamentos da linguagem C#.
+O livro foi escrito por profissionais MVP, e apresenta os fundamentos da linguagem C#.
 - [Clique aqui para acessar o livro](https://livrocsharp.com.br/wp-content/uploads/dae-uploads/CSharpIniciantes.pdf)
 
 ## Como utilizar:
