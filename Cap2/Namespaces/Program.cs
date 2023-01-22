@@ -9,8 +9,10 @@ Autor: github.com/renanmms
 */
 
 
+global using SampleNamespace;
 using System;
 using PP = ProgramaPrincipal;
+using Namespaces.Client;
 
 namespace ProgramaPrincipal {
 
@@ -38,6 +40,19 @@ namespace BlueFleet.GestaoDeVeiculos.API.GET {
 
 }
 
+
+namespace SampleNamespace
+{
+    class SampleClass
+    {
+        public void SampleMethod()
+        {
+            System.Console.WriteLine(
+                "SampleMethod inside SampleNamespace");
+        }
+    }
+}
+
 namespace Namespaces
 {
 
@@ -49,17 +64,11 @@ namespace Namespaces
     {
         static void Main(string[] args)
         {
-            //ClasseUm c1 = new ClasseUm();
-            ClasseDois c1 = new ClasseDois(); // Classe do namespace 'Namespaces'
-            // Acessando membros de um namespace
-            PP.ClasseDois c2 = new PP.ClasseDois();
-            c1.Id = 2;
-            c2.Id = 3;
-            c2.nome = "Classe 2";
-
-            Console.WriteLine(c1.Id);
-            Console.WriteLine($"{c2.nome}");
-            Console.WriteLine($"{c2.Id}");
+            var client = new Namespaces.Client.ClientClass();
         }
     }
+
+    
 }
+
+
