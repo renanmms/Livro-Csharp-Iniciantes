@@ -101,3 +101,8 @@ else{
     WriteLine($"Nome: {nome}");
 }
 
+WriteLine("CONCAT");
+
+var alunos = new List<string>{"Yuri\n", "Bruno\n", "Carlos\n", "Pedro\n"};
+
+WriteLine(string.Concat(alunos));
