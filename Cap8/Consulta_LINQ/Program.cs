@@ -1,7 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using System;
-using System.Linq;
-using System.Collections.Generic;
+using System.Collections;
 
 // Array de inteiros (fonte de dados)
 var numeros = new[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19};
@@ -251,4 +249,50 @@ var categorias = numeros.Select(p =>
 foreach(var c in categorias)
 {
     Console.WriteLine($"Descrição: {c.Descricao} Id: {c.Id}");
+}
+
+
+var sequence1 = new int[]{1, 2, 3, 4, 5};
+
+var sequence2 = new int[]{2, 3, 7, 5};
+
+var intersectSeq = sequence1.Intersect(sequence2);
+
+foreach(var i in intersectSeq) {
+    Console.WriteLine(i);
+}
+
+Console.WriteLine("========= OFTYPE ==========");
+var sequence3 = new ArrayList();
+
+sequence3.Add(3.1415);
+sequence3.Add(2.8981M);
+sequence3.Add(7);
+sequence3.Add("Array    List");
+sequence3.Add(3);
+
+foreach(var i in sequence3.OfType<decimal>()){
+    Console.WriteLine($" {i} ");
+}
+
+Console.WriteLine("========= EXCEPT ==========");
+var oddNumbers = new List<int>{2, 4, 6, 8, 10, 12};
+var primeNumbers = new List<int>{1, 2, 3, 5, 7, 11};
+
+var resultSequence = oddNumbers.Except(primeNumbers); // 4, 6, 8, 10, 12
+var resultSequence2 = primeNumbers.Except(oddNumbers);
+
+Console.WriteLine("========= Prime Numbers except Odd Numbers ==========");
+foreach(var n in resultSequence2) {
+    Console.WriteLine($" {n} ");
+}
+
+Console.WriteLine("========= Odd Numbers except Prime Numbers ==========");
+foreach(var n in resultSequence) {
+    Console.WriteLine($" {n} ");
+}
+
+Console.WriteLine("========= REPEAT ==========");
+foreach(var n in Enumerable.Repeat("********", 8)) {
+    Console.WriteLine(n);
 }
